@@ -6,6 +6,10 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _movespeed;
     [SerializeField] private float _destroytime;
+
+    [SerializeField] private int _destroyTarget;
+    private int _destroyCount;
+
     private Rigidbody rb;
     private Vector3 _lastVelocity;
 
@@ -21,7 +25,11 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         _lastVelocity = rb.velocity;
-        
+
+        if (_destroyCount == _destroyTarget)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,20 +37,25 @@ public class Bullet : MonoBehaviour
         var speed = _lastVelocity.magnitude;
         var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
         rb.velocity = direction * Mathf.Max(speed, 0f);
+        float collisionAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (collision.collider.CompareTag("Meteor")) 
+        Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, collisionAngle));
+        transform.rotation = newRotation;
+        if (collision.collider.CompareTag("Meteor"))
         {
-            Destroy(gameObject);
+            _destroyCount++;
         }
     }
 
-    void Move() 
+    void Move()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; 
+        mousePosition.z = 0f;
 
         Vector3 direction = (mousePosition - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         rb.AddForce(direction * _movespeed, ForceMode.Impulse);
     }
 }

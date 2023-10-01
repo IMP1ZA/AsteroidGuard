@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movespeed: 10
   _destroytime: 10
+  _destroyTarget: 2
 --- !u!65 &6370074670042910946
 BoxCollider:
   m_ObjectHideFlags: 0
