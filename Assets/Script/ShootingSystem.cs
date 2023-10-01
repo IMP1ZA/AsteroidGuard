@@ -28,6 +28,7 @@ public class ShootingSystem : MonoBehaviour
     {
         _canShoot = false;
 
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Instantiate(_bullet, _shootPosition.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(_cooldown);
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
+    [SerializeField] private float moveSpeed;
 
     void Update()
     {
-         float _verticalMovement = Input.GetAxis("Vertical");
-         float _horizontalMovement = Input.GetAxis("Horizontal");
+         float verticalMovement = Input.GetAxis("Vertical");
+         float horizontalMovement = Input.GetAxis("Horizontal");
          
-         Vector3 movement = new Vector3(_horizontalMovement, _verticalMovement, 0) * moveSpeed * Time.deltaTime;
+         Vector3 movement = new Vector3(horizontalMovement, verticalMovement, 0) * moveSpeed * Time.deltaTime;
 
          transform.Translate(movement);
     }
