@@ -5,10 +5,11 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
+    private Manager _manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _manager = FindObjectOfType<Manager>();
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class Meteor : MonoBehaviour
     {
         if (collision.collider.CompareTag("Bullet")) 
         {
-            Destroy(gameObject);
+            _manager.GetScore();
+            Destroy(gameObject);       
         }
     }
 }
