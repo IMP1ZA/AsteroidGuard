@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1.5
+  _tag: Bullet
 --- !u!135 &8662067801962606140
 SphereCollider:
   m_ObjectHideFlags: 0
