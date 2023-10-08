@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c9c85369560994586f00badd559a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  _moveSpeed: 5
 --- !u!54 &1691815944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1395,6 +1395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b646d294f7e8648ba3b7d6ea8acf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tag:
+  - Meteor
+  - Bullet
 --- !u!1 &2139015241
 GameObject:
   m_ObjectHideFlags: 0

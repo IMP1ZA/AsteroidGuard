@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
+    public float moveSpeed = 5f; // Adjust this to set the movement speed.
+
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
-         float verticalMovement = Input.GetAxis("Vertical");
-         float horizontalMovement = Input.GetAxis("Horizontal");
-         
-         Vector3 movement = new Vector3(horizontalMovement, verticalMovement, 0) * _moveSpeed * Time.deltaTime;
+        // Get input from the player.
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-         transform.Translate(movement);
+        // Calculate the movement direction.
+        Vector3 movementDirection = new Vector3(horizontalInput, verticalInput, 0f);
+
+        // Apply the velocity to the Rigidbody.
+        rb.velocity = movementDirection * moveSpeed;
     }
 }
 
