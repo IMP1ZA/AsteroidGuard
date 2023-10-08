@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class Manager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
     [SerializeField] private GameObject _winScene;
@@ -12,7 +12,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame

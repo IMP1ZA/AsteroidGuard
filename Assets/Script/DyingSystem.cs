@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DyingSystem : MonoBehaviour
 {
+    [SerializeField] private string[] _tag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,15 @@ public class DyingSystem : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Bullet") || collision.collider.CompareTag("Meteor")) 
+        for (int i = 0; i < _tag.Length; i++)
         {
-            Destroy(gameObject);
+            if (collision.collider.CompareTag(_tag[i]))
+            {
+                Destroy(gameObject);
+            }
         }
+      
     }
 }
