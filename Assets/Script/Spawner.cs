@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _meteor;
+    [SerializeField] private GameObject[] _meteor;
     [SerializeField] private float _minCooldown;
     [SerializeField] private float _maxCooldown;
 
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForSeconds(randomCooldown);
 
-            Instantiate(_meteor, transform.position, Quaternion.identity);              
+            Instantiate(_meteor[Random.Range(0,_meteor.Length)], transform.position, Quaternion.identity);              
         }
     }
 }

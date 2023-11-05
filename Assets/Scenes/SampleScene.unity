@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1c0f9f4663ab49b4b6fd3639bea4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteor: {fileID: 6123279987556253554, guid: 543f85c367b24464098124fcc11a6955, type: 3}
+  _meteor:
+  - {fileID: 3712215468181072183, guid: e0cfb534d47614c7b825642df2d44a40, type: 3}
+  - {fileID: 6123279987556253554, guid: 543f85c367b24464098124fcc11a6955, type: 3}
   _minCooldown: 2
   _maxCooldown: 5
 --- !u!4 &376906264
@@ -821,7 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1c0f9f4663ab49b4b6fd3639bea4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteor: {fileID: 6123279987556253554, guid: 543f85c367b24464098124fcc11a6955, type: 3}
+  _meteor:
+  - {fileID: 3712215468181072183, guid: e0cfb534d47614c7b825642df2d44a40, type: 3}
+  - {fileID: 6123279987556253554, guid: 543f85c367b24464098124fcc11a6955, type: 3}
   _minCooldown: 2
   _maxCooldown: 4
 --- !u!4 &1045568910
