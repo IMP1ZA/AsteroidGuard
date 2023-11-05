@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if(Score == _scoreTarget)  
+        if(Score >= _scoreTarget)  
         {
             Time.timeScale = 0f;
             _winScene.SetActive(true);
