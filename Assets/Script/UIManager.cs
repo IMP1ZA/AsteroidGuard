@@ -20,11 +20,6 @@ public class UIManager : MonoBehaviour
     {
         _scoreText.text = "Score: " + Score;
 
-        if (Input.GetKey(KeyCode.R)) 
-        {
-            SceneManager.LoadScene(0);
-        }
-
         if(Score >= _scoreTarget)  
         {
             Time.timeScale = 0f;
@@ -36,5 +31,10 @@ public class UIManager : MonoBehaviour
     {
         Score++;
         return Score;    
+    }
+
+    public void Restart() 
+    {
+        SceneManager.LoadScene(1);
     }
 }
