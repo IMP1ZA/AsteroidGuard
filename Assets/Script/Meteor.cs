@@ -6,6 +6,7 @@ public class Meteor : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private string _tag;
+    [SerializeField] private AudioClip _ac;
     private UIManager _manager;
     private Rigidbody _rb;
     // Start is called before the first frame update
@@ -30,5 +31,10 @@ public class Meteor : MonoBehaviour
             _manager.GetScore();
             Destroy(gameObject);       
         }
+    }
+
+    void OnDestroy()
+    {
+        AudioSource.PlayClipAtPoint(_ac, transform.position);
     }
 }

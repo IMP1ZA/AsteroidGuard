@@ -6,6 +6,7 @@ public class DyingSystem : MonoBehaviour
 {
     [SerializeField] private string[] _tag;
     [SerializeField] private GameObject _LoseScene;
+    [SerializeField] private AudioClip _ac;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,17 @@ public class DyingSystem : MonoBehaviour
         {
             if (collision.collider.CompareTag(_tag[i]))
             {
+
                 Destroy(gameObject);
                 Time.timeScale = 0f;
                 _LoseScene.SetActive(true);
             }
         }
       
+    }
+
+    void OnDestroy()
+    {
+        AudioSource.PlayClipAtPoint(_ac, transform.position);
     }
 }
