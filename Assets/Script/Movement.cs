@@ -15,15 +15,19 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // Get input from the player.
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Calculate the movement direction.
-        Vector3 movementDirection = new Vector3(horizontalInput, verticalInput, 0f);
+        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
+        rb.AddForce(movement.normalized * moveSpeed, ForceMode.Force);
+    }
 
-        // Apply the velocity to the Rigidbody.
-        rb.velocity = movementDirection * moveSpeed;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Wall")) 
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }
 

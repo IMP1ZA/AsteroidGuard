@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Meteor
+  - Undefined
+  - Wall
   layers:
   - Default
   - TransparentFX
