@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Meteor : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private string _bullet;
