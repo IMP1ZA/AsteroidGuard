@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3855446682042015699}
   - component: {fileID: 8382453156291093522}
   - component: {fileID: 9072710282202218416}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpeedMeteor
   m_TagString: Meteor
   m_Icon: {fileID: 0}
