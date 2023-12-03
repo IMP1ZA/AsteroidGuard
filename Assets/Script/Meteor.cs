@@ -6,13 +6,16 @@ public class Meteor : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private string _tag;
+    [SerializeField] private string _wallTag;
     [SerializeField] private AudioClip _ac;
-    private ScoreManager _manager;
+    private ScoreManager _scoreManager;
+    private LifeManager _lifeManager;
     private Rigidbody _rb;
     // Start is called before the first frame update
     void Start()
     {
-        _manager = FindObjectOfType<ScoreManager>();
+        _scoreManager = FindObjectOfType<ScoreManager>();
+        _lifeManager = FindObjectOfType<LifeManager>();
         _rb = GetComponent<Rigidbody>();
     }
 
@@ -28,8 +31,14 @@ public class Meteor : MonoBehaviour
     {
         if (collision.collider.CompareTag(_tag)) 
         {
-            _manager.GetScore();
+            _scoreManager.GetScore();
             Destroy(gameObject);       
+        }
+
+        if (collision.collider.CompareTag(_wallTag))
+        {
+            _lifeManager.LifeDecrease();
+            Destroy(gameObject);
         }
     }
 
