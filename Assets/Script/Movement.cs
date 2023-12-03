@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Adjust this to set the movement speed.
+    [SerializeField] private float _moveSpeed = 5f;
 
-    private Rigidbody rb;
+    private Animator _anim;
+    private Rigidbody _rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _anim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -19,15 +21,9 @@ public class Movement : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
-        rb.AddForce(movement.normalized * moveSpeed, ForceMode.Force);
-    }
+        _rb.AddForce(movement.normalized * _moveSpeed, ForceMode.Force);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Wall")) 
-        {
-            rb.velocity = Vector3.zero;
-        }
+        _anim.SetFloat("UpAndDown", verticalInput);
     }
 }
 
