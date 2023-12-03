@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class UIManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
     [SerializeField] private GameObject _winScene;
@@ -33,8 +33,5 @@ public class UIManager : MonoBehaviour
         return Score;    
     }
 
-    public void Restart() 
-    {
-        SceneManager.LoadScene(1);
-    }
+
 }

@@ -1895,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c9c85369560994586f00badd559a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  _moveSpeed: 5
 --- !u!65 &1514994787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2214,10 +2214,6 @@ PrefabInstance:
       propertyPath: _as
       value: 
       objectReference: {fileID: 4108641}
-    - target: {fileID: 4756264453781436289, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9144030251778499809, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2249,7 +2245,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875185522}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1901008ca65ead44a9e64c728c4bfcd6, type: 2}
   m_CullingMode: 0
@@ -2317,8 +2313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740.2557, y: -505.71243}
-  m_SizeDelta: {x: 439.4886, y: 68.5812}
+  m_AnchoredPosition: {x: 1.5643e-10, y: 442}
+  m_SizeDelta: {x: 572.8309, y: 133.7708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2139015243
 CanvasRenderer:
@@ -2350,12 +2346,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 0
+    m_MaxSize: 75
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
