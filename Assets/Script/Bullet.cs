@@ -37,9 +37,9 @@ public class Bullet : MonoBehaviour
     {
         var speed = _lastVelocity.magnitude;
         var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
-        _rb.velocity = direction * Mathf.Max(speed, 0f);
-        float collisionAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        _rb.velocity = direction * _movespeed;
+        float collisionAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, collisionAngle));
         transform.rotation = newRotation;
 
