@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 3956545706807500900, guid: 3181a48d12a70cb409b2c719233799ab, type: 3}
   _shootPosition: {fileID: 2999275104091630028}
-  _cooldown: 1.5
+  _cooldown: 1
   _as: {fileID: 6451708221639010583}
 --- !u!54 &4756264453781436289
 Rigidbody:
