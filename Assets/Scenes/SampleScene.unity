@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeText: {fileID: 1746040988}
   _loseScene: {fileID: 1496114829}
-  _life: 3
+  _life: 4
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

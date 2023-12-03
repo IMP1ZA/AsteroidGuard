@@ -10,13 +10,7 @@ public class ShootingSystem : MonoBehaviour
     [SerializeField] private AudioSource _as;
 
     private bool _canShoot  = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) && _canShoot) 
@@ -34,7 +28,6 @@ public class ShootingSystem : MonoBehaviour
         Instantiate(_bullet, _shootPosition.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(_cooldown);
         
-
         _canShoot = true;
     }
 }

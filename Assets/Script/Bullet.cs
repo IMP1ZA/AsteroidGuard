@@ -10,11 +10,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private string _player;
     [SerializeField] private AudioClip _ac;
 
-
     [SerializeField] private int _destroyTarget;
     private int _destroyCount;
 
-    private LifeManager _lifeManager;
     private Rigidbody _rb;
     private Vector3 _lastVelocity;
 
@@ -22,7 +20,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _lifeManager = FindObjectOfType<LifeManager>();
         Move();
         Destroy(gameObject, _destroytime);
     }

@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movespeed: 10
-  _destroytime: 10
+  _destroytime: 7
   _meteor: Meteor
   _player: Player
+  _ac: {fileID: 0}
   _destroyTarget: 2
 --- !u!54 &5705439380765520606
 Rigidbody:
