@@ -5,8 +5,9 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1.0f;
-    [SerializeField] private string _tag;
-    [SerializeField] private string _wallTag;
+    [SerializeField] private string _bullet;
+    [SerializeField] private string _wall;
+    [SerializeField] private string _player;
     [SerializeField] private AudioClip _ac;
     private ScoreManager _scoreManager;
     private LifeManager _lifeManager;
@@ -29,13 +30,19 @@ public class Meteor : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag(_tag)) 
+        
+        if (collision.collider.CompareTag(_bullet))
         {
             _scoreManager.GetScore();
-            Destroy(gameObject);       
+            Destroy(gameObject);
         }
 
-        if (collision.collider.CompareTag(_wallTag))
+        if (collision.collider.CompareTag(_player))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.collider.CompareTag(_wall)) 
         {
             _lifeManager.LifeDecrease();
             Destroy(gameObject);

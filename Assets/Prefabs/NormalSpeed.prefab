@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1.5
-  _tag: Bullet
-  _wallTag: Wall
+  _bullet: Bullet
+  _wall: Wall
+  _player: Player
   _ac: {fileID: 8300000, guid: 5edc744750518b34c8f50b62116c5dc1, type: 3}
 --- !u!54 &-2914288943185459046
 Rigidbody:

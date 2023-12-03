@@ -6,11 +6,15 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _movespeed;
     [SerializeField] private float _destroytime;
-    [SerializeField] private string _tag;
+    [SerializeField] private string _meteor;
+    [SerializeField] private string _player;
+    [SerializeField] private AudioClip _ac;
+
 
     [SerializeField] private int _destroyTarget;
     private int _destroyCount;
 
+    private LifeManager _lifeManager;
     private Rigidbody _rb;
     private Vector3 _lastVelocity;
 
@@ -18,6 +22,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _lifeManager = FindObjectOfType<LifeManager>();
         Move();
         Destroy(gameObject, _destroytime);
     }
@@ -35,7 +40,6 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        var speed = _lastVelocity.magnitude;
         var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
 
         _rb.velocity = direction * _movespeed;
@@ -43,10 +47,16 @@ public class Bullet : MonoBehaviour
         Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, collisionAngle));
         transform.rotation = newRotation;
 
-        if (collision.collider.CompareTag(_tag))
+        if (collision.collider.CompareTag(_player))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.collider.CompareTag(_meteor))
         {
             _destroyCount++;
         }
+
     }
 
     void Move()
